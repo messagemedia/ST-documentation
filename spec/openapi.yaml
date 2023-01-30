@@ -3209,6 +3209,10 @@ components:
           type: string
           description: Destination number of the message
           example: '+1234567890'
+        destination_address_country:
+          type: string
+          description: Country of the destination address
+          example: 'US'  
         format:
           $ref: '#/components/schemas/Format'
         metadata:
@@ -3248,7 +3252,19 @@ components:
           description: Last time this message's status was updated
           example: "2017-02-10T16:30:00"
         direction:
-          $ref: '#/components/schemas/MessageDirection'      
+          $ref: '#/components/schemas/MessageDirection'
+        account_id:
+          type: string
+          description: The ID of the account
+          example: 'messagingxyz_YNV_0001'
+        units:
+          type: number
+          description: The amount of messages received
+          example: 1
+        status_description:
+          type: string
+          description: The status of the message
+          example: 'Message delivered!'
     Sendmessagesresponse:
       title: Sendmessagesresponse
       type: object
