@@ -1801,6 +1801,7 @@ components:
       required:
         - label
         - schedule
+        - report
       properties:
         label:
           type: string
@@ -1810,6 +1811,15 @@ components:
           $ref: '#/components/schemas/schedule'
         report:
           $ref: '#/components/schemas/scheduleddetailrequest'
+        scheduled_report_id:
+          type: string
+          example: "43928f76-c381-4943-8619-f10460005898"
+          description: The ID of the scheduled report.
+        message_type:
+          $ref: '#/components/schemas/MessageDirection'
+        report_type:
+          type: string
+          example: detail  
     scheduleddetailrequest:
       title: scheduleddetailrequest
       type: object
@@ -1941,6 +1951,7 @@ components:
       required:
         - label
         - schedule
+        - report
       properties:
         label:
           type: string
@@ -1950,6 +1961,15 @@ components:
           $ref: '#/components/schemas/schedule'
         report:
           $ref: '#/components/schemas/scheduledsummaryrequest'
+        scheduled_report_id:
+          type: string
+          example: "43928f76-c381-4943-8619-f10460005898"
+          description: The ID of the scheduled report.
+        message_type:
+          $ref: '#/components/schemas/MessageDirection'
+        report_type:
+          type: string
+          example: detail  
     scheduledsummaryrequest:
       title: scheduledsummaryrequest
       type: object
@@ -2401,7 +2421,7 @@ components:
           type: array
           items:
             type: string
-            example: id, content, meta1
+            example: [id, content, meta1]
           description: An array of fields to be retrieved.
     detailresponse:
       title: detailresponse
