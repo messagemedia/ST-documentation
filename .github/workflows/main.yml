@@ -22,6 +22,12 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
+    # set personal git identify to authorise
+    - name: Set Git Identity
+      run: |
+        git config user.email "jason.wu@sinch.com"
+        git config user.name "Jason Wu"
+
     # Runs the command to test and deploy the application to production
     - name: deploy to production
       run: |
