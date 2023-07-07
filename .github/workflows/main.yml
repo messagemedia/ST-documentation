@@ -35,6 +35,8 @@ jobs:
         npm run build
         npm test
         npm run gh-pages
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     # disable temporally for passing deployment
     # - name: Slack Notification
     #   uses: rtCamp/action-slack-notify@v2.0.0
