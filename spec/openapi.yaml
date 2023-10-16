@@ -374,7 +374,7 @@ tags:
         * `400`: Message failed; undeliverable.
         
         * `405`: Message cancelled or deleted by provider.
-        
+
   - name: Replies
     description: ''
   - name: Messaging Reports
@@ -889,13 +889,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/403response' 
+                $ref: '#/components/schemas/403response'
         '404':
           description: Resource not found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/404response'  
+                $ref: '#/components/schemas/404response'
       deprecated: false
     put:
       security:
@@ -961,7 +961,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/404response'  
+                $ref: '#/components/schemas/404response'
       deprecated: false
   /v1/messages:
     post:
@@ -1295,7 +1295,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/403response' 
+                $ref: '#/components/schemas/403response'
         '404':
           description: Resource not found
           content:
@@ -1376,7 +1376,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/403response' 
+                $ref: '#/components/schemas/403response'
         '404':
           description: Resource not found
           content:
@@ -1480,7 +1480,15 @@ paths:
         wasn't specified in the original message, then the destination number
         property will not be present
 
-        in the reply message.*
+        in the reply message.
+        
+        A source number can be specified for the message, 
+        this will be the sender that appears on the handset. Specifying a source number 
+        
+        is optional and by default a source number will be assigned to the message. 
+        It’s strongly recommended to specify source_number if you have multiple numbers on your account, 
+        
+        otherwise source address will be chosen randomly from your account’s number pool.*
 
         Subsequent requests to the check replies endpoint will return the same
         reply messages and a maximum
@@ -1547,7 +1555,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/403response' 
+                $ref: '#/components/schemas/403response'
         '404':
           description: Resource not found
           content:
@@ -1626,7 +1634,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/403response' 
+                $ref: '#/components/schemas/403response'
         '404':
           description: Resource not found
           content:
@@ -1824,7 +1832,7 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/scheduledreport'  
+            $ref: '#/components/schemas/scheduledreport'
     scheduleddetailreport:
       title: scheduleddetailreport
       type: object
@@ -1849,7 +1857,7 @@ components:
           $ref: '#/components/schemas/MessageDirection'
         report_type:
           type: string
-          example: detail  
+          example: detail
         metadata:
           type: object
           description: >-
@@ -1864,7 +1872,7 @@ components:
             ```
           example:
             - "myKey": "myValue"
-            - "anotherKey": "anotherValue"  
+            - "anotherKey": "anotherValue"
     scheduleddetailrequest:
       title: scheduleddetailrequest
       type: object
@@ -2016,7 +2024,7 @@ components:
           $ref: '#/components/schemas/MessageDirection'
         report_type:
           type: string
-          example: detail  
+          example: detail
         metadata:
           type: object
           description: >-
@@ -2031,7 +2039,7 @@ components:
             ```
           example:
             - "myKey": "myValue"
-            - "anotherKey": "anotherValue"  
+            - "anotherKey": "anotherValue"
     scheduledsummaryrequest:
       title: scheduledsummaryrequest
       type: object
@@ -2968,7 +2976,7 @@ components:
           example: '11/3/2016 11:49:02 AM'
         source_number:
           type: string
-          example: 
+          example:
         message_id:
           type: string
           description: Unique ID of this message
@@ -3078,7 +3086,7 @@ components:
             The media is used to specify a list of URLs of the media file(s) that you are
             trying to send. Supported file formats include png, jpeg and gif.
             format parameter must be set to MMS for this to work.
-          example: 
+          example:
             - "https://images.pexels.com/photos/1018350/pexels-photo-1018350.jpeg?cs=srgb&dl=architecture-buildings-city-1018350.jpg"
         subject:
           type: string
@@ -3157,7 +3165,7 @@ components:
             The media is used to specify a list of URLs of the media file(s) that you are
             trying to send. Supported file formats include png, jpeg and gif.
             format parameter must be set to MMS for this to work.
-          example: 
+          example:
             - "https://images.pexels.com/photos/1018350/pexels-photo-1018350.jpeg?cs=srgb&dl=architecture-buildings-city-1018350.jpg"
         subject:
           type: string
@@ -3224,7 +3232,7 @@ components:
           example: '11/3/2016 11:49:02 AM'
         source_number:
           type: string
-          example:   
+          example:
         message_id:
           type: string
           description: Unique ID of this message
@@ -3239,7 +3247,7 @@ components:
             The media is used to specify a list of URLs of the media file(s) that you are
             trying to send. Supported file formats include png, jpeg and gif.
             format parameter must be set to MMS for this to work.
-          example: 
+          example:
             - "https://images.pexels.com/photos/1018350/pexels-photo-1018350.jpeg?cs=srgb&dl=architecture-buildings-city-1018350.jpg"
         subject:
           type: string
@@ -3586,7 +3594,7 @@ components:
       type: http
       scheme: basic
     hmac_auth:  # security definition name (you can name it as you want)
-      type: apiKey 
+      type: apiKey
       # The following options are specific to apiKey type
       in: header # Where API key will be passed: header or query
       name: Authorization # API key parameter name
